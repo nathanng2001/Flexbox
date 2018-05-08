@@ -1,0 +1,56 @@
+
+.navbar {
+  background-color: #6bb9ff ;
+  border-color: #6bb9ff ;
+  background-repeat: no-repeat;
+}
+
+.nav.navbar-nav a {
+  color: #dbdbdb !important;
+  font-size: 110%;
+}
+
+nav a:hover {
+  font-size: 115%  !important;
+  font-weight: bold !important;
+  background-color: #001b7f !important;
+}
+
+/* Change Underline
+li.current_nav {
+  text-decoration: underline;
+}
+
+*/
+
+.nav.navbar-nav li.current_nav a {
+  color: #FFFFFF !important;
+}
+
+/*
+a, a:hover, a:visited, h3 {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+*/
+
+a:link {
+	color: #0069e2;
+}
+
+a:hover {
+	color: #001b7f;
+}
+
+a:visited {
+	color: #009da8;
+}
+
+p {
+  font-size: 120%;
+}
+
+p.my_padding {
+  padding: 0 40px 0 30px;
+  text-align: justify;
+}

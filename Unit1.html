@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chapter 3</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="Unit1.css">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+    display: flex;
+    background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Note -->
+<div style="background:yellow;padding:5px">
+  <h4 style="text-align:center">Unit 1 - Differential Calculus Essentials</h4>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1><b>Chapter 3 Limits</b></h1>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		  <div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <!-- Need another <span></span>? -->
+			  </button>
+		  </div>
+		  <div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav">
+				  <li><a href="flexbox.html">About</a></li>
+				  <li class="current_nav"><a href="Unit1.html">Ch.3 - Limits</a></li>
+				  <li><a href="Ch4.html">Ch.4 - Continuity</a></li>
+				  <li><a href="Ch5.html">Ch.5 - The Definition of the Derivative</a></li>
+          <li><a href="Ch6.html">Ch.6 - Differentiability</a></li>
+          <li><a href="Ch7.html">Ch.7 - Implicit Differentiation</a></li>
+			 </ul>
+		  </div>
+	  </div>
+  </nav>
+
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text about me </p>
+      <h3>Algebraic Rules of Limits that you should know.</h3>
+      <p> </p>
+      <div class="fakeimg" style="height:60px;">lim<sub>x&rarr;a</sub> kf(x) = klim<sub>x&rarr;a</sub> f(x)</div><br>
+      <p>Example: lim<sub>x&rarr;5</sub> 3x<sup>2</sup> = 3lim<sub>x&rarr;5</sub> x<sup>2</sup> = 75</p>
+
+      <div class="fakeimg" style="height:100px;">If lim<sub>x&rarr;a</sub> f(x) = L<sub>1</sub> and lim<sub>x&rarr;a</sub> g(x) = L<sub>2</sub>, then lim<sub>x&rarr;a</sub> [f(x) + g(x)] = L<sub>1</sub> + L<sub>2</sub> </div><br>
+      <p>Example: lim<sub>x&rarr;5</sub> [x<sup>2</sup> + x<sup>3</sup>] = lim<sub>x&rarr;5</sub> x<sup>2</sup> + lim<sub>x&rarr;5</sub> x<sup>3</sup> = 150 </p>
+
+      <div class="fakeimg" style="height:100px;">If lim<sub>x&rarr;a</sub> f(x) = L<sub>1</sub> and lim<sub>x&rarr;a</sub> g(x) = L<sub>2</sub>, then lim<sub>x&rarr;a</sub> [f(x) * g(x)] = L<sub>1</sub> + L<sub>2</sub> </div><br>
+      <p>Example: lim<sub>x&rarr;5</sub> [(x<sup>2</sup> + 1)&radic;<span style="text-decoration: overline">x -1</span>] = lim<sub>x&rarr;5</sub> (x<sup>2</sup> + 1) lim<sub>x&rarr;5</sub> &radic;<span style="text-decoration: overline">x -1</span> = 52 </p>
+
+
+  </div>
+
+  <div class="main">
+      <h2>What is a limit?</h2>
+      <h5>In order to understand calculus, you need to know what a "limit" is.
+      A limit is the value a function (which usually is written "f(x)" on the AP Exam) approaches as the variable within that function (usually "x") gets nearer and nearer to a particular value.
+      In other words, when x is very close to a certain number, what is f(x) very close to?</h5>
+
+      <p>Let's look at an example of a limit: What is the limit of the function f(x) = x<sup>2</sup> as x approaches 2?
+      In limit notation, the expression "the limit of f(x) as x approaches 2" is written like this: lim <sub>x&rarr;2</sub> f(x).
+      In order to evaluate the limit, let's check out some values of lim <sub>x&rarr;2</sub> f(x) as x increases and gets closer to 2 (without ever exactly getting there).
+      </p>
+
+      <p>
+      When x = 1.9, f(x) = 3.61. <br>
+      When x = 1.99, f(x) = 3.9601. <br>
+      When x = 1.999, f(x) = 3.996001. <br>
+      When x = 1.9999, f(x) = 3.99960001. <br>
+      </p>
+
+      <p>As x increases and approaches 2, f(x) gets closer and closer to 4.
+      This is called the <strong>left-hand limit</strong> and is written: lim <sub>x&rarr;2<sup>-</sup></sub> f(x).
+      Notice the little minus sign!</p>
+
+      <p>What about when x is bigger than 2? <br>
+      When x = 2.1, f(x) = 4.41. <br>
+      When x = 2.01, f(x) = 4.0401. <br>
+      When x = 2.001, f(x) = 4.004001. <br>
+      When x = 2.0001, f(x) = 4.00040001. <br>
+      </p>
+
+      <p>As x decreases and approaches 2, f(x) still approaches 4.
+      This is called the <strong>right-hand limit</strong> and is written like this: lim <sub>x&rarr;2<sup>+</sup></sub> f(x).
+      Notice the little plus sign! </p>
+
+      <p>We got the same answer when evaluating both the left- and right-hand limits, because when x is 2, f(x) is 4.
+      You should always check both sides of the independent variable because, as you'll see shortly, sometimes you don't get the same answer.
+      Therefore, we write that lim <sub>x&rarr;2</sub> x<sup>2</sup> = 4. </p>
+
+      <p>We didn't really need to look at all of these decimal values to know what was going to happen when x got really close to 2.
+      But it's important to go through the exercise because, typically, the answers get a lot more complicated.
+      Let's do a few examples. </p>
+
+      <p><strong>Example 1:</strong> Find lim<sub>x&rarr;5</sub> x<sup>2</sup>. </p><br>
+
+      <p>The approach is simple: Plug in 5 for x, and you get 25. </p><br>
+
+      <p><strong>Example 2:</strong> Find lim<sub>x&rarr;3</sub> x<sup>3</sup>. </p>br>
+
+      <p>Here the answer is 27.</p><br>
+
+      <p>&larr;There are some simple algebraic rules of limits that you should know. </p><br>
+
+      <p><strong>Example 3:</strong> Find lim<sub>x&rarr;0</sub> (x<sup>2</sup> + 5x). </p><br>
+
+      <p>Plug in 0, and you get 0. </p><br>
+
+      <p>So far, so good.
+      All you do to find the limit of a simple polynomial is plug in the number that the variable is approaching and see what the answer is.
+      Naturallym, the proces can get messier - especially if x approaches zero. </p> <br><br>
+
+      <p><strong>Example 4:</strong> Find lim<sub>x&rarr;0</sub> 1&frasl;x<sup>2</sup>: </p>
+
+      <div class="fakeimg" style="height:200px;"><img src="Images/graph_of_y=1_x2.png" alt="Graph of Y=1÷x^2"></div><br>
+
+      <p>On either side of x=0 (the y-axis), the curve approaches &infin;. </p><br>
+
+      <p><strong>Example 5:</strong> Find lim<sub>x&rarr;0</sub> 1&frasl;x . </p><br>
+
+      <p>Here you have a problem.
+      If you plug in some very small positive values for x(0.1,0.01,0.001, and so on), you approach &infin;.
+      In other words, lim<sub>x&rarr;0<sup>+</sup></sub> 1&frasl;x = &infin;.
+      But if you plug in some very small negative values for x(-0.1,-0.01,-0.001, and so on), you approach - &infin;.
+      That is, lim<sub>x&rarr;0<sup>-</sup></sub> 1&frasl;x = -&infin;.
+      Because the right-hand limit is not equal to the left-hand limit, the limit does not exist. </p><br>
+
+      <p>Look at the graph of 1&frasl;x . </p><br>
+
+      <div class="fakeimg" style="height:200px;"><img src="Images/graph_1_x" alt="Graph of Y=1÷x"></div><br>
+
+      <p>You can see that on the left side of x = 0, the curve approaches -&infin;, and on the right side of x = 0, the curve approaches &infin;.
+      There are some very important points that we need to emphasize from the last two examples. </p><br>
+
+      <p>Why do we state the limit in Example 4 but not for Example 5?
+      Because when we have k &frasl; x<sup>2</sup>, the function is always positive no matter what the sign of x is and thus the function has the same limit from the left and the right.
+      But when we have k &frasl; x, the function's sign depends on the sign of x, and you get a different limit from each side. </p><br>
+
+      <p>Let's look at a few examples in which the independent variable approaches infinity. </p><br>
+
+      <br>
+      <h2>TITLE HEADING</h2>
+      <h5>Title description</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p> </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>

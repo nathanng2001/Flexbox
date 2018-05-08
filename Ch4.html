@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="Ch4.css">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+    display: flex;
+    background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Note -->
+<div style="background:yellow;padding:5px">
+  <h4 style="text-align:center">Unit 1 - Differential Calculus Essentials</h4>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1><b>Chapter 4 Continuity</b></h1>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		  <div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <!-- Need another <span></span>? -->
+			  </button>
+		  </div>
+		  <div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav">
+				  <li><a href="flexbox.html">About</a></li>
+				  <li><a href="Unit1.html">Ch.3 - Limits</a></li>
+				  <li class="current_nav"><a href="Ch4.html">Ch.4 - Continuity</a></li>
+				  <li><a href="Ch5.html">Ch.5 - The Definition of the Derivative</a></li>
+          	  <li><a href="Ch6.html">Ch.6 - Differentiability</a></li>
+          	  <li><a href="Ch7.html">Ch.7 - Implicit Differentiation</a></li>
+			 </ul>
+		  </div>
+	  </div>
+  </nav>
+
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text about me </p>
+      <h3>Types of Discontinuities</h3>
+      <p>There are four types of discontinuities you have to know: jump, point, essential, and removable. </p>
+      <div class="fakeimg" style="height:200px;">A <b>jummp</b> discontinuity occurs when the curve "breaks" at a particular place and stars somewhere else.
+		In other words, lim<sub>x&rarr;a<sup>-</sup></sub> f(x) &ne; lim<sub>x&rarr;a<sup>+</sup></sub> f(x). </div><br>
+
+      <div class="fakeimg" style="height:230px;">A <b>point</b> discontinuity occurs when the curve has a "hole" in it from a missing point because the function has a value at the point that is "off the curve."
+		In other words, lim<sub>x&rarr;a</sub> f(x) &ne; f(a). </div><br>
+
+      <div class="fakeimg" style="height:100px;">An <b>essential</b> discontinuity occurs when the curve has a vertical asymptote. </div><br>
+
+		<div class="fakeimg" style="height:270px;">A <b>removable</b> discontinuity occurs when you have a rational expression with common factors iin the numerator and denominator.
+		Because these factors can be canceled, the discontinuity is "removable."</div>
+  </div>
+  <div class="main">
+      <!-- <h2>TITLE HEADING</h2> -->
+      <h5>Every AP Exam has a few questions on continuity, so it's important to understand the basic idea of what it means for a function to be continuous.
+		The concept is very simple:If the graph of the function doesn't have any breaks or holes in it within a certain interval, the function is continuous over that interval. </h5><br>
+
+		<h5>Simple polynomials are continuous everywhere; it's the other ones - trignometric, rational, piecewise-that might have continuity problems.
+		Most of the test questions concern these last types of functions.
+		In order to learn how to test whether a function is continuous, you'll need some more mathematical terminology. </h5><br>
+
+		<h2><b>The Definition of Continuity</b></h2>
+		<h5>In order for a function f(x) to be continuous at a point x = c, it must fulfill <em>all three</em> of the following conditions. </h5>
+      <div class="fakeimg" style="height:200px;">
+			<b>Condition 1:</b> f(c) exists. <br><br>
+		 	<b>Condition 2:</b> lim<sub>x&rarr;c</sub> f(x) exists. <br><br>
+			<b>Condition 3:</b> lim<sub>x&rarr;c</sub> f(x) = f(c) </div>
+
+      <p>Let's look at a simple example of a continuous function.</p>
+
+		<p><b>Example 1:</b> Is the function f(x) = <sup>x + 1, x&lt;2 </sup> <sub>2x - 1, x&ge;2</sub> continuous at the point x = 2? </p>
+
+		<p>Condition 1: Does f(2) exist?</p>
+
+		<p>Yes. It's equal to 2(2) - 1 = 3. </p>
+
+		<p>Conidition 2. Does lim<sub>x&rarr;2</sub> f(x) exist? </p>
+
+		<p>You need to look at the limit from both sides of 2.
+		The left-hand limit is: lim<sub>x&rarr;2<sup>-</sup></sub> f(x) = 2 + 1 = 3.
+		The right-hand limit is: lim<sub>x&rarr;2<sup>+</sup></sub> f(x) = 2(2) - 1 = 3. </p>
+
+		<p>Because the two limits are the same, the limit exists. </p>
+
+		<p>Condition 3: Does lim<sub>x&rarr;2</sub> f(x) = f(2)? </p>
+
+		<p>The two equal each other, so yes; the function is continuous at x = 2. </p>
+
+		<p>A simple and important way to check whether a function is continuous is to sketch the function.
+		If you can't sketch the function without lifting your pencil from the paper at some point, then the function is not continuous. </p>
+
+		<p>Now let's look at some examples of functions that are not continuous. </p>
+      <p> </p>
+      <br>
+      <h2>TITLE HEADING</h2>
+      <h5>Title description</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p> </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>

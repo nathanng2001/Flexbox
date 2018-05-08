@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="Ch5.css">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+}
+
+/* Style the top navigation bar */
+.navbar {
+    display: flex;
+    background-color: #333;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* Main column */
+.main {
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Note -->
+<div style="background:yellow;padding:5px">
+  <h4 style="text-align:center">Unit 1 - Differential Calculus Essentials</h4>
+</div>
+
+<!-- Header -->
+<div class="header">
+  <h1><b>Chapter 5 The Definition of the Derivative</b></h1>
+</div>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		  <div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <!-- Need another <span></span>? -->
+			  </button>
+		  </div>
+		  <div class="collapse navbar-collapse" id="myNavbar">
+			  <ul class="nav navbar-nav">
+				  <li><a href="flexbox.html">About</a></li>
+				  <li><a href="Unit1.html">Ch.3 - Limits</a></li>
+				  <li><a href="Ch4.html">Ch.4 - Continuity</a></li>
+				  <li class="current_nav"><a href="Ch5.html">Ch.5 - The Definition of the Derivative</a></li>
+          	  <li><a href="Ch6.html">Ch.6 - Differentiability</a></li>
+          	  <li><a href="Ch7.html">Ch.7 - Implicit Differentiation</a></li>
+			 </ul>
+		  </div>
+	  </div>
+  </nav>
+
+
+<!-- The flexible grid (content) -->
+<div class="row">
+  <div class="side">
+      <h2>About Me</h2>
+      <h5>Photo of me:</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text about me </p>
+      <h3>More Text</h3>
+      <p> </p>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div><br>
+      <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+      <!-- <h2>TITLE HEADING</h2> -->
+      <h5>The main tool that you'll use in differential calculus is called the <b>derivative</b>.
+		All of the problems that you'll encounter in differential calculus make use of the derivative, so your goal should be to become an expert at finding, or "taking." derivatives by the end of Chapter 6.
+		However, before you learn a simple way to take a derivative, your teacher will probably make you learn how derivatives are calculate by teaching you something called the "Definition of the Derivative."</h5>
+
+		<h2><b>Deriving the Formula</b></h2>
+		<h5>The best way to understand the definition of the derivative is to start by looking at the simplest continuous function: a line.
+		As you should recall, you can determine the slope of a line by taking two points on that line and plugging them into the slope formula. </h5>
+
+		<p> <em>m</em> = y<sub>2</sub> - y<sub>1</sub> <br>
+		<blockquote>x<sub>2</sub> - x<sub>1</sub> </blockquote></p><br>
+
+		<p>For example, suppose a line goes through the points (3,7) and (8,22).
+		First, you subtract the y-coordinates (22 - 7) = 15.
+		Next, subtract the corresponding x-coordinates (8 - 3) = 5.
+		Finally, divide the first number by the second: 15 / 5 = 3.
+		The result is the slope of the line: <em>m</em> = 3. </p>
+
+		<p>Let's look at the graph of that line.
+		The slope measures the steepness of the line, which looks like the following: </p>
+
+      <div class="fakeimg" style="height:200px;">Image</div><br>
+
+      <p>You probably remember your teachers referring to the slope as the "rise" over the "run."
+		The rise is the difference between the y-coordinates, and the run is the difference between th x-coordinates.
+		The slope is the ratio of the two. </p>
+
+      <p>Now for a few changes in notation.
+		Instead of calling the x-coordinates x<sub>1</sub> and x<sub>2</sub>, we're going to call them x<sub>1</sub> and x<sub>1</sub> + <em>h</em>, where <em>h</em> is the difference between the two x-coordinates.
+ 		Second, instead of using y<sub>1</sub> and y<sub>2</sub>, we use f(x<sub>1</sub>) and f(x<sub>1</sub> + <em>h</em>).
+		So now the graph looks like the following: </p>
+
+		<div class="fakeimg" style="height:200px;">Image</div>
+
+		<p>The picture is exactly the same - only the notation has changed. </p>
+
+		<h2><b>The Slope of a Curve</b></p>
+		<h5>Suppose that instead of finding the slope of a line, we wanted to find the slope of a curve.
+		Here, the slope formula no longer works, because the distance from one point to the other is along a curve, not a straight line.
+		But we could find the approximate slope if we took the slope of the line between the two points.
+		This is called the <b>secant line</b>. </h5>
+
+      <br>
+      <h2>TITLE HEADING</h2>
+      <h5>Title description</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+      <p> </p>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <h2>Footer</h2>
+</div>
+
+</body>
+</html>
